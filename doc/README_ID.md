@@ -148,7 +148,7 @@ Optional Arguments:
   -h,  --help		 show this help message
   -o,  --html		 Make report output into HTML 
   -s,  --source		 Use source for Enumerate Subdomain
-  -tO, --takeover	 Subdomain TakeOver Vulnerabilty Scanner
+  -tO, --takeover	 Subdomain TakeOver Vulnerability Scanner
   -pS, --ping-sweep	 Check live host using methode Ping Sweep
   -rS, --resolver	 Convert domain lists to resolved IP lists without duplicates
   -sC, --status-code     Get status codes, response from domain list
