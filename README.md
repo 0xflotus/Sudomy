@@ -76,7 +76,7 @@ Detail information File Reconnaissance & Juicy Data
 - subdomain.txt             -- Subdomain list             < $DOMAIN (Target)
 - httprobe_subdomain.txt    -- Validate Subdomain	  < subdomain.txt
 - webanalyzes.txt           -- Identify technology scan   < httprobe_subdomain.txt
-- httpx_status_title.txt    -- title+statuscode+lenght    < httprobe_subdomain.txt
+- httpx_status_title.txt    -- title+statuscode+length    < httprobe_subdomain.txt
 - dnsprobe_subdomain.txt    -- Subdomain resolv		  < subdomain.txt
 - Subdomain_Resolver.txt    -- Subdomain resolv (alt)     < subdomain.txt
 - cf-ipresolv.txt           -- Cloudflare scan        	  < ip_resolver.txt 
@@ -91,7 +91,7 @@ Detail information File Reconnaissance & Juicy Data
 - Passive_Collect_URL_Full.txt 		-- Full All Url Crawl (WebArchive, CommonCrawl, UrlScanIO)
 ------------------------------------------------------------------------------------------------------
 
-- ./screenshots/report-0.html   	-- Screenshoting report    	< httprobe_subdomain.txt
+- ./screenshots/report-0.html   	-- Screenshotting report    	< httprobe_subdomain.txt
 - ./screenshots/gowitness/gowitness.sqlite3   		-- Database screenshot    	< httprobe_subdomain.txt
 
 ------------------------------------------------------------------------------------------------------
@@ -110,7 +110,7 @@ Detail information File Reconnaissance & Juicy Data
 - ./takeover/CNAME-resolv.txt		-- CNAME Resolver 		< subdomain.txt
 - ./takeover/TakeOver-Lookup.txt	-- DNSLookup 			< CNAME-resolv.txt
 - ./takeover/TakeOver-nxdomain.txt	-- Other 3d service platform	< TakeOver-Lookup.txt
-- ./takeover/TakeOver.txt		-- Checking Vulnerabilty	< CNAME-resolv.txt
+- ./takeover/TakeOver.txt		-- Checking Vulnerability	< CNAME-resolv.txt
 
 ------------------------------------------------------------------------------------------------------
 
@@ -269,7 +269,7 @@ Optional Arguments:
   -aI, --apps-identifier Identify technologies on website (ex: -aI webanalyze)
   -dP, --db-port         Collecting port from 3rd Party default=shodan
   -eP, --extract-params  Collecting URL Parameter from Engine
-  -tO, --takeover        Subdomain TakeOver Vulnerabilty Scanner
+  -tO, --takeover        Subdomain TakeOver Vulnerability Scanner
   -wS, --websocket       WebSocket Connection Check
   -cF, --cloudfare       Check an IP is Owned by Cloudflare
   -pS, --ping-sweep      Check live host using methode Ping Sweep
@@ -320,7 +320,7 @@ HTML Report Sample:
 |![Index](https://user-images.githubusercontent.com/17976841/63597336-6ab6e880-c5e7-11e9-819e-91634e347b0c.PNG)|![f](https://user-images.githubusercontent.com/17976841/63597476-bbc6dc80-c5e7-11e9-8985-6a73348a2e02.PNG)|
 
 
-To gnereate network graph visualization subdomain & virtualhosts
+To generate network graph visualization subdomain & virtualhosts
 ```
 $ sudomy -d hackerone.com -rS --graph
 ```
