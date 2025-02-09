@@ -33,7 +33,7 @@ goBanner() {
   echo -e ${RED}"\__ \ || / _  ${YELLOW}/ __ \ ${GREEN} ' \ || |${RESET}"
   echo -e ${RED}"|___/\_,_\__,_${YELLOW}\____/${GREEN}_|_|_\_, |${RESET}"
   echo -e ${RED}"              ${YELLOW}      ${GREEN}      |__/${RESET} v{${RED}${VERSION}${RESET}} by ${GREEN}@screetsec ${RESET}"
-  echo -e "${YELLOW}Sud⍥my ${RESET}- Fast Subdmain Enumeration and Analyzer ${RESET}     "
+  echo -e "${YELLOW}Sud⍥my ${RESET}- Fast Subdomain Enumeration and Analyzer ${RESET}     "
   echo -e "\t http://github.com/screetsec/sudomy\n"
 }
 
@@ -56,10 +56,10 @@ LGREEN="\033[1;32m"  # Light GREEN
 LBLUE="\033[1;34m"   # Light Blue
 LPURPLE="\033[1;35m" # Light Purple
 LCYAN="\033[1;36m"   # Light Cyan
-SORANGE="\033[0;33m" # Standar Orange
-SBLUE="\033[0;34m"   # Standar Blue
-SPURPLE="\033[0;35m" # Standar Purple
-SCYAN="\033[0;36m"   # Standar Cyan
+SORANGE="\033[0;33m" # Standard Orange
+SBLUE="\033[0;34m"   # Standard Blue
+SPURPLE="\033[0;35m" # Standard Purple
+SCYAN="\033[0;36m"   # Standard Cyan
 DGRAY="\033[1;30m"   # Dark Gray
 
 goHelp() {
@@ -79,9 +79,9 @@ goHelp() {
   echo -e "${PADDING}${BOLD}-aI,${RESET} --apps-identifier Identify technologies on website (ex: -aI webanalyze)"
   echo -e "${PADDING}${BOLD}-dP,${RESET} --db-port\t Collecting port from 3rd Party default=shodan"
   echo -e "${PADDING}${BOLD}-eP,${RESET} --extract-params\t Collecting URL Parameter from Engine"
-  echo -e "${PADDING}${BOLD}-tO,${RESET} --takeover\t Subdomain TakeOver Vulnerabilty Scanner"
+  echo -e "${PADDING}${BOLD}-tO,${RESET} --takeover\t Subdomain TakeOver Vulnerability Scanner"
   echo -e "${PADDING}${BOLD}-wS,${RESET} --websocket\t WebSocket Connection Check"
-  echo -e "${PADDING}${BOLD}-cF,${RESET} --cloudfare\t Check an IP is Owned by Cloudflare"
+  echo -e "${PADDING}${BOLD}-cF,${RESET} --cloudflare\t Check an IP is Owned by Cloudflare"
   echo -e "${PADDING}${BOLD}-pS,${RESET} --ping-sweep\t Check live host using methode Ping Sweep"
   echo -e "${PADDING}${BOLD}-rS,${RESET} --resolver\t Convert domain lists to resolved IP lists without duplicates"
   echo -e "${PADDING}${BOLD}-sC,${RESET} --status-code\t Get status codes, response from domain list"
@@ -193,7 +193,7 @@ while [[ "${#}" -gt 0 ]]; do
     ;;
 
   \
-    "-cf" | "--cloudfare")
+    "-cf" | "--cloudflare")
     PLUGIN_CFCHECK=true
     shift
     ;;
@@ -1034,7 +1034,7 @@ if [[ ${PLUGIN_PING_SWEEP} == true ]]; then
 fi
 
 # Ddetect virtualhost (several subdomains which resolve to single IP Address
-# resolve the collected subdomains to IP addresses, then classify them if several subdomains resolve to single IP addres
+# resolve the collected subdomains to IP addresses, then classify them if several subdomains resolve to single IP address
 if [[ ${PLUGIN_RESOLV_SD} == true ]]; then
 
   source ${APP_RESOLVER}
@@ -1069,7 +1069,7 @@ if [[ ${PLUGIN_CFCHECK} == true ]]; then
 fi
 
 # Port scanning with top-ports using nmap from domain list
-# To run this plugin, rung with argument -cF to check IP Onwed with Cloudfare
+# To run this plugin, rung with argument -cF to check IP Owned with Cloudflare
 # Before perform Active Scanning
 # For Example sudomy -d example.com -cF -nT
 if [[ ${PLUGIN_NMAP_PORTS} == true ]]; then
@@ -1110,14 +1110,14 @@ fi
 #Remove Temporary RAW DATA []
 #rm -r ${OUT_RAW_WEBARCHIVE} ${OUT_RAW_COMMONCRAWL} ${OUT_RAW_URLSCAN} ${OUT}/${RESULT_EXTRACT_PARAM} > /dev/null 2>&1
 
-# Subdomain TakeOver Vulnerabilty Scanner
+# Subdomain TakeOver Vulnerability Scanner
 if [[ ${PLUGIN_TAKEOVER} == true ]]; then
   source ${APP_TAKEOVER}
   exec_takeover
 fi
 
 # Identify technology on websites
-# Run argument -aI / --apps-identifider ( -aI webanalyze / -aI webanalyze,wappalyzer
+# Run argument -aI / --apps-identifier ( -aI webanalyze / -aI webanalyze,wappalyzer
 if [[ ${APPS_IDENTIFIER} == true ]]; then
   # Default running Apps Identifier (wappalyzer)
   if [[ -z ${LIST_API} ]]; then
@@ -1183,7 +1183,7 @@ fi
 
 # Subdomain, IPAddress & Virtualhost (Make Network Graph Mapping)
 # nGraph for Mapping Results
-# Run this argument wirh -rS or this argument will rung that argument to perform
+# Run this argument with -rS or this argument will rung that argument to perform
 if [[ ${PLUGIN_NGRAPH} == true ]]; then
   if [[ ${PLUGIN_RESOLV_SD} == true ]]; then
     source ${APP_GRAPH}
@@ -1338,14 +1338,14 @@ for i in $(ls "${OUT}/${DATE_LOG}/${DOMAIN}"); do
 done
 
 echo -e "---------------------------------------------\n"
-echo -e "If your using the screenshot plugin (gowitness) Remeber to kill the server process when you're done"
+echo -e "If your using the screenshot plugin (gowitness) Remember to kill the server process when you're done"
 echo -e "ps aux | grep gowitness"
 echo -e "kill -9 <PID>"
 echo -e "---------------------------------------------\n"
 
 
 if [[ $DESTINATION == true ]]; then
-  echo -e "\n${BOLD}[${LGREEN}+${RESET}${BOLD}]${RESET} Sud⍥my has been sucessfully ${GRENN}completed${RESET}"
+  echo -e "\n${BOLD}[${LGREEN}+${RESET}${BOLD}]${RESET} Sud⍥my has been successfully ${GRENN}completed${RESET}"
   echo -e "---------------------------------------------\n"
   echo -e "${PADDING}${YELLOW}${PADDING}⍥${PADDING}${RESET}Location output: "
   [[ ! -e "${OUTFILE}/${OUT_NAME}" ]] &&
